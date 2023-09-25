@@ -1,24 +1,35 @@
+Seleccion = 0
+
+def MenuSeleccion():
+    print("\n", "1: Iniciar sesion","\n","2: Crear cuenta", "\n")
+    global Seleccion 
+    Seleccion = int(input())
+
+MenuSeleccion()
+
+if Seleccion != 1 and Seleccion != 2:
+    print("La respuesta de seleccion no es valida, por favor indique con un numero que menu quiere ingresar.")
+    MenuSeleccion()
 
 
-
-
-print("\n", "1: Iniciar sesion","\n","2: Crear cuenta", "\n")
-Seleccion = int(input())
 
 if Seleccion == 1:
     f = open ('Aulas.dat','r')
     print("\n", "Escriba su nombre de usuario", "\n")
     IntentoUser = str(input())
     DatoUser = f.readline()
-    if IntentoUser == DatoUser:
-        print("\n","Usuario correcto")
-
+    DatoUser.replace("\n","")
     print("\n", "Escriba su contraseña", "\n")
     IntentoPassword = str(input())
     DatoPassword = f.readline()
-    if IntentoPassword == DatoPassword:
-        print("\n","Contraseña correcta","\n")
+    DatoPassword.replace("\n","")
+    if IntentoUser == DatoUser and IntentoPassword == DatoPassword:
+        print("\n","Contraseña y Usuario correcto","\n")
+    else:
+        print("Contraseña o Usuario incorrecto")
+        MenuSeleccion()
     f.close()
+    
     
 
 
